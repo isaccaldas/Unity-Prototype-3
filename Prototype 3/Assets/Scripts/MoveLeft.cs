@@ -20,5 +20,10 @@ public class MoveLeft : MonoBehaviour
         if(playerControllerScript.gameOver == false){
         transform.Translate(Vector3.left * Time.deltaTime* speed); 
         }
+
+        if(transform.position.x < -15){
+            Destroy(gameObject);
+        }
+
     }
 }
