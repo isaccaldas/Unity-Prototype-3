@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             isOnGround = true;
         }
 
-        else if(other.gameObject.CompareTag("Obstacle")){
+        if(other.gameObject.CompareTag("Obstacle")){
             gameOver = true;
             Debug.Log("Fim de Jogo");
         }
