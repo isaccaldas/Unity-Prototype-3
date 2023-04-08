@@ -22,9 +22,8 @@ public class PlayerController : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         
         //playerRb.AddForce(Vector3.up * 500);
+        
         Physics.gravity *= gravityModifier;
-
-   
         
     }
 
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
-            playerAnim.SetTrigger("Jump_trig");
+            //playerAnim.SetTrigger("Jump_trig");
         }
         
     }
@@ -51,7 +50,9 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Obstacle")){
             gameOver = true;
             Debug.Log("Fim de Jogo");
-        }
+            playerAnim.SetBool("Death_b",true);
+            playerAnim.SetInteger("DeathType_int", 1);
+        } 
 
     }
 }
